@@ -3,6 +3,8 @@
         <user-edit></user-edit>
         <user-delete></user-delete>
         <br>
+        <button @click="logout">ログアウトする</button>
+        <br><br>
         <router-link
             to="/users"
         >もどる</router-link>
@@ -16,6 +18,13 @@ export default {
     components: {
         userEdit,
         userDelete
+    },
+    methods: {
+        logout() {
+            alert("ログアウトしました。")
+            localStorage.clear();
+            location.href = '/';
+        }
     }
 }
 </script>

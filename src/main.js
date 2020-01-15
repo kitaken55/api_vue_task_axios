@@ -9,6 +9,6 @@ axios.defaults.baseURL = "https://teachapi.herokuapp.com/";
 axios.defaults.headers.get["Accept"] = "application/json";
 
 new Vue({
-  router, 
+  router,
   render: h => h(App),
 }).$mount('#app')

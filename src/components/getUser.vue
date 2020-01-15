@@ -2,11 +2,11 @@
     <div>
         <p>
             <router-link
-            to="edit"
+            to="/me/edit"
             >ユーザー編集</router-link>
             |
             <router-link
-            to="/timeline"
+            to="/me/timeline"
             >自分のタイムライン</router-link>
             |
             <router-link

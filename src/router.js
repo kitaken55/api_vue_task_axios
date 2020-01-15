@@ -34,11 +34,11 @@ export default new Router({
             component: getUser
         },
         {
-            path: '/edit',
+            path: '/me/edit',
             component: edit
         },
         {
-            path: '/timeline',
+            path: '/me/timeline',
             component: timeline,
         },
         {
