@@ -1,15 +1,15 @@
 <template>
    <div id="app">
      <h3>ユーザー登録</h3>
-    <p>{{ "名前: " + name }}</p>
+    <p>{{ `名前: + ${name}` }}</p>
      <input id="name" type="text" v-model="name">
-     <p>{{ "自己紹介: " +bio }}</p>
+     <p>{{ `自己紹介: +${bio}` }}</p>
      <input id="bio" type="text" v-model="bio">
-     <p>{{ "email: " +email }}</p>
+     <p>{{ `email: + ${email}` }}</p>
      <input id="email" type="text" v-model="email">
-     <p>{{ "パスワード: " +password }}</p>
+     <p>{{ `パスワード: + ${password}` }}</p>
      <input id="password" type="text" v-model="password">
-     <p>{{ "パスワード(再入力): " +password_confirmation }}</p>
+     <p>{{ `パスワード(再入力): + ${password_confirmation}` }}</p>
      <input id="password_confirmation" type="text" v-model="password_confirmation">
      <br><br>
      <button @click="createUsers">ユーザー登録</button>
