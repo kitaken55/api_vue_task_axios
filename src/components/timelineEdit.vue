@@ -1,9 +1,8 @@
 <template>
     <div>
-        <p>id指定</p>
-        <input type="number" v-model="id">
         <p>テキスト変更</p>
         <input type="text" v-model="text">
+        <br>
         <button @click="edit">変更する</button>
     </div>
 </template>
@@ -13,8 +12,8 @@ import axios from "axios"
 export default {
     data() {
         return {
-            id: "",
-            text: "",
+            id: this.$route.query.id,
+            text: this.$route.query.text,
         }
     },
     methods: {

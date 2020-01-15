@@ -15,9 +15,9 @@
                 <p>{{ timeline.id }}</p>
                 <p>名前: {{ timeline.text }}</p>
                 <!-- ここにtimeline.idを使った動的なviwe-router -->
-                <router-link :to="{ path: '/timeline/edit'}" :edit="editText">テキスト編集</router-link >
+                <router-link :to="{ path: '/timeline/edit', query: {id: timeline.id, text: timeline.text}} ">テキスト編集</router-link >
                 <br>
-                <router-link :to="{ path: '/timeline/delete'}" >テキスト削除</router-link >
+                <a class="delete_text" @click="delete_text(timeline.id)">テキストを削除</a>
             </div>
             <br>
         </div>
@@ -46,6 +46,7 @@ export default {
             }
         },
         methods: {
+            //投稿
             textPost() {
                 axios.post('posts',
                 {
@@ -65,7 +66,34 @@ export default {
                 .catch(error => {
                     alert(error);
                 });
-            }
+            },
+
+            //投稿削除
+            delete_text(id) {
+                if (confirm(`この投稿(${id})を消しますか？`)) {
+                    axios.delete(`posts/${id}`,
+                    {
+                        headers: {"Authorization": `Bearer ${localStorage.token}`}
+                    },
+                    )
+                    .then(result => {
+                        alert("削除に成功しました");
+                        location.href = '/timeline';
+                    })
+
+                    .catch(error => {
+                        alert(error);
+                    });
+                }
+        }
         }
 }
 </script>
+
+<style>
+    .delete_text {
+        cursor: pointer;
+        border-bottom: solid 1px blue;
+        color: blue;
+    }
+</style>
