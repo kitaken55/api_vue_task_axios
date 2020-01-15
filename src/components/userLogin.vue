@@ -38,15 +38,15 @@ export default {
             })
             .then(response => response.data)
             .then(object => {
-                if (!object.token) {
-                    alert("存在しないアカウントです。");
-                } else {
+                if (object.token) {
                     alert("ログインしました");
                     localStorage.token = object.token;
                     localStorage.id = object.id;
                     localStorage.name = object.name;
                     localStorage.bio = object.bio;
                     this.$router.push('/users');
+                } else {
+                    alert("存在しないアカウントです。");
                 }
                 })
             .catch(error => {
