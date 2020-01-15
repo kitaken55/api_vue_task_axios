@@ -8,7 +8,7 @@
         <h1>みんなのタイムライン</h1>
         <input type="text" v-model="text">
         <br>
-        <button @click="textPost">ツイートする</button>
+        <button @click="textPost('/timeline/all')">ツイートする</button>
         <div v-for="allTimeline in getAllTimeline" :key="allTimeline.id">
         <hr>
         <p>{{ allTimeline.text }}</p>
@@ -18,6 +18,7 @@
 
 <script>
 import axios from "axios"
+import http from "../http.js"
 export default {
         data() {
             return {
@@ -35,26 +36,6 @@ export default {
                 alert(error);
             });
         },
-        methods: {
-            textPost() {
-                axios.post('posts',
-                {
-                    "post_params": {
-                        "text": this.text
-                    }
-                },
-                {
-                    headers: {"Authorization": `Bearer ${localStorage.token}`}
-                },
-                )
-                .then(result => {
-                    location.href = '/timeline/all'; //ここだけ違う
-                })
-
-                .catch(error => {
-                    alert(error);
-                });
-            }
-        }
+        mixins: [http],
 }
 </script>

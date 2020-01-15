@@ -8,7 +8,7 @@
         <h1>自分のタイムライン</h1>
         <input type="text" v-model="text">
         <br>
-        <button @click="textPost">ツイートする</button>
+        <button @click="textPost('/timeline')">ツイートする</button>
         <div class="board" v-for="timeline in getTimeline" :key="timeline.id">
             <hr>
             <div>
@@ -26,6 +26,7 @@
 
 <script>
 import axios from "axios"
+import http from "../http.js"
 export default {
         data() {
             return {
@@ -45,29 +46,9 @@ export default {
                 });
             }
         },
+        mixins: [http],
+
         methods: {
-            //投稿
-            textPost() {
-                axios.post('posts',
-                {
-                    "post_params": {
-                        "text": this.text
-                    }
-                },
-                {
-                    headers: {"Authorization": `Bearer ${localStorage.token}`}
-                },
-                )
-                //ゆずのはさんとやったとこ //構文を正しくする必要がある。
-                .then(result => {
-                    location.href = '/timeline';
-                })
-
-                .catch(error => {
-                    alert(error);
-                });
-            },
-
             //投稿削除
             delete_text(id) {
                 if (confirm(`この投稿(${id})を消しますか？`)) {
