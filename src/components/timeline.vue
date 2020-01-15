@@ -8,7 +8,7 @@
         <h1>自分のタイムライン</h1>
         <input type="text" v-model="text">
         <br>
-        <button @click="textPost('/timeline')">ツイートする</button>
+        <button @click="textPost('/me/timeline')">ツイートする</button>
         <div class="board" v-for="timeline in getTimeline" :key="timeline.id">
             <hr>
             <div>
@@ -59,7 +59,7 @@ export default {
                     )
                     .then(result => {
                         alert("削除に成功しました");
-                        this.$router.push('/timeline');
+                        this.$router.push('/me/timeline');
                     })
 
                     .catch(error => {

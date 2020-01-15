@@ -21,10 +21,10 @@ export default new Router({
             path: '/',
             component: signUp
         },
-        {
-            path: '*',
-            redirect: '/'
-        },
+        // {
+        //     path: '*',
+        //     redirect: '/'
+        // },
         {
             path: '/login',
             component: userLogin

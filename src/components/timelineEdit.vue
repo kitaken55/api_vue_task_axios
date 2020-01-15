@@ -31,7 +31,7 @@ export default {
             )
             .then(result => {
                 alert("編集に成功しました");
-                this.$router.push('/timeline');
+                this.$router.push('/me/timeline');
             })
 
             .catch(error => {
