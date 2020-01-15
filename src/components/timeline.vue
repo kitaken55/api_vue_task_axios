@@ -15,7 +15,7 @@
                 <p>{{ timeline.id }}</p>
                 <p>名前: {{ timeline.text }}</p>
                 <!-- ここにtimeline.idを使った動的なviwe-router -->
-                <router-link :to="{ path: '/timeline/edit'}" >テキスト編集</router-link >
+                <router-link :to="{ path: '/timeline/edit'}" :edit="editText">テキスト編集</router-link >
                 <br>
                 <router-link :to="{ path: '/timeline/delete'}" >テキスト削除</router-link >
             </div>
@@ -30,7 +30,7 @@ export default {
         data() {
             return {
                 text: "",
-                getTimeline: []
+                getTimeline: [],
             }
         },
         created() {

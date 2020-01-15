@@ -7,12 +7,7 @@
         <input id="bio" type="text" v-model="bio">
         <br>
         <button @click="editUser">変更する</button>
-        <p>
-            <router-link
-            to="/users"
-            >もどる</router-link>
-        </p>
-        <router-view></router-view>
+        <!-- <router-view></router-view> -->
     </div>
 </template>
 
@@ -27,7 +22,7 @@ export default {
     },
     methods: {
         editUser() {
-            axios.delete(`users/${localStorage.id}`,
+            axios.put(`users/${localStorage.id}`,
             {
                 "user_params": {
                     "name": this.name,

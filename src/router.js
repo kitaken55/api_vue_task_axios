@@ -6,12 +6,13 @@ import Router from 'vue-router';
 const signUp = () => import("./components/signUp.vue");
 const userLogin = () => import("./components/userLogin.vue");
 const getUser = () => import("./components/getUser.vue");
-const userEdit = () => import("./components/userEdit.vue");
-const userDelete = () => import("./components/userDelete.vue");
+// const userEdit = () => import("./components/userEdit.vue");
+// const userDelete = () => import("./components/userDelete.vue");
 const timeline = () => import("./components/timeline.vue");
 const timelineEdit = () => import("./components/timelineEdit.vue");
 const timelineDelete = () => import("./components/timelineDelete.vue");
 const timelineAll = () => import("./components/timelineAll.vue");
+const edit = () => import("./components/edit.vue");
 
 Vue.use(Router);
 
@@ -35,13 +36,17 @@ export default new Router({
             path: '/users',
             component: getUser
         },
+        // {
+        //     path: '/me/edit',
+        //     component: userEdit,
+        // },
+        // {
+        //     path: '/me/delete',
+        //     component: userDelete
+        // },
         {
-            path: '/me/edit',
-            component: userEdit,
-            children: [
-                { path: "delete", component: userDelete }
-            ]
-            // /me/edit/deleteとうつと、ほしい感じになる(修正予定)
+            path: '/edit',
+            component: edit
         },
         {
             path: '/timeline',

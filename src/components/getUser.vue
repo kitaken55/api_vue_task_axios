@@ -2,7 +2,7 @@
     <div>
         <p>
             <router-link
-            to="/me/edit/delete"
+            to="edit"
             >ユーザー編集</router-link>
             |
             <router-link
@@ -30,12 +30,16 @@
 
 <script>
 import axios from "axios"
+import userDelete from "./userDelete"
 export default {
         data() {
             return {
                 auth: false,
                 getUsers: []
             }
+        },
+        components: {
+            userDelete
         },
         created() {
             if(localStorage.token) {
