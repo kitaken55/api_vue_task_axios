@@ -46,7 +46,7 @@ export default {
                     localStorage.id = object.id;
                     localStorage.name = object.name;
                     localStorage.bio = object.bio;
-                    location.href = '/users'
+                    this.$router.push('/users');
                 }
                 })
             .catch(error => {

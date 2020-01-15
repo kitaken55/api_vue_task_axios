@@ -38,7 +38,7 @@ export default {
                 alert("編集が完了しました。");
                 localStorage.name = object.name,
                 localStorage.bio = object.bio,
-                location.href = "/users"
+                this.$router.push('/users')
             })
             .catch(error => {
                 alert(error);

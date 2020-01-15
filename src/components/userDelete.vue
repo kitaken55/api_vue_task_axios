@@ -19,7 +19,7 @@ export default {
                 .then(
                     localStorage.clear(),
                     alert("ユーザーは消えました"),
-                    location.href = '/'
+                    this.$router.push('/')
                 )
                 .catch(error => {
                     alert(error);

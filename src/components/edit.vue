@@ -23,7 +23,7 @@ export default {
         logout() {
             alert("ログアウトしました。")
             localStorage.clear();
-            location.href = '/';
+            this.$router.push('/');
         }
     }
 }

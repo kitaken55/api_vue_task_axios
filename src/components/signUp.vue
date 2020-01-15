@@ -52,7 +52,7 @@ export default {
                     localStorage.id = json.id;
                     localStorage.name = json.name;
                     localStorage.bio = json.bio;
-                    location.href = '/users'
+                    this.$router.push('/users');
             })
             .catch(error => {
                 alert(error);

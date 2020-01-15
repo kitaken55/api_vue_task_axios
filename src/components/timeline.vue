@@ -59,7 +59,7 @@ export default {
                     )
                     .then(result => {
                         alert("削除に成功しました");
-                        location.href = '/timeline';
+                        this.$router.push('/timeline');
                     })
 
                     .catch(error => {

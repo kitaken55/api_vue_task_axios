@@ -13,7 +13,7 @@ export default {
                 },
             )
                 .then(result => {
-                    location.href = url;
+                    this.$router.push(url)
                 })
 
                 .catch(error => {
