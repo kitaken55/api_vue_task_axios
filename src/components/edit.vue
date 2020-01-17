@@ -1,6 +1,6 @@
 <template>
-    <div>
-        <user-edit></user-edit>
+    <div id="components-demo">
+        <!-- <user-edit></user-edit> -->
         <user-delete></user-delete>
         <br>
         <button @click="logout">ログアウトする</button>
@@ -13,11 +13,40 @@
 
 <script>
 import userEdit from "./userEdit"
-import userDelete from "./userDelete"
+import axios from "axios"
+// import userDelete from "./userDelete"
+new Vue({ el: '#components-demo' })
+
+Vue.component('user-delete', {
+    methods: {
+        deleteUser() {
+            if (confirm("本当にけしますか？")) {
+                axios.put(`users/${localStorage.id}`,
+                {
+                    headers: {"Authorization": `Bearer ${localStorage.token}`}
+                }
+                )
+                .then(
+                    localStorage.clear(),
+                    alert("ユーザーは消えました"),
+                    this.$router.push('/')
+                )
+                .catch(error => {
+                    alert(error);
+                });
+            }
+        }
+    },
+    template: `<div>
+                    <h2>ユーザーを削除する</h2>
+                    <button @click="deleteUser">削除する</button>
+                </div>`
+})
+
 export default {
     components: {
         userEdit,
-        userDelete
+        // userDelete
     },
     methods: {
         logout() {
